@@ -223,7 +223,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583077955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -397,6 +397,7 @@ MonoBehaviour:
   objectSpawnRadius: 30
   tilePrefab: {fileID: 4187587824218941183, guid: bd2f2dff6dc3ff747a74d1c1b6d07cb1, type: 3}
   grassPrefab: {fileID: 2940739177435640698, guid: cd085b0c0209ffc4ba1f7b7079d9ad9f, type: 3}
+  GameTime: 0
 --- !u!4 &2043542606
 Transform:
   m_ObjectHideFlags: 0

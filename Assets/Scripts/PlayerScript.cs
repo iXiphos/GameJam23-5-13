@@ -56,9 +56,7 @@ public class PlayerScript : MonoBehaviour
                     if (Input.GetKey(interactKey))
                     {
                         //nothing special, destroy it i guess
-                        Destroy(carriedObj.gameObject);
-                        carriedObj = null;
-                        isCarryingObj = false;
+                        notCarryingAnymore();
                     }
                     break;
                 }
@@ -77,9 +75,7 @@ public class PlayerScript : MonoBehaviour
                         torch.transform.parent = transform;
                         //add torch duration
 
-                        Destroy(carriedObj.gameObject);
-                        carriedObj = null;
-                        isCarryingObj = false;
+                        notCarryingAnymore();
                     }
                     break;
                 }
@@ -97,9 +93,7 @@ public class PlayerScript : MonoBehaviour
                         GameObject fire = Instantiate(firePrefab, transform.position, Quaternion.identity);
                         // set fire's light duration
 
-                        Destroy(carriedObj.gameObject);
-                        carriedObj = null;
-                        isCarryingObj = false;
+                        notCarryingAnymore();
                     }
                     break;
                 }
@@ -109,6 +103,7 @@ public class PlayerScript : MonoBehaviour
     public void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<CarryableObject>() != null)
+        {
             if (Input.GetKey(pickupKey) && !isCarryingObj)
             {
                 carriedObj = collision.gameObject.GetComponent<CarryableObject>();
@@ -116,5 +111,17 @@ public class PlayerScript : MonoBehaviour
                 collision.gameObject.transform.parent = gameObject.transform;
                 collision.GetComponent<BoxCollider2D>().enabled = false;
             }
+        }
+        else if (collision.gameObject.name.Contains("campfire") && isCarryingObj && Input.GetKeyDown(pickupKey))
+        {
+            collision.GetComponent<lightScript>().addThingToFire(carriedObj, this);
+        }
+    }
+
+    public void notCarryingAnymore()
+    {
+        Destroy(carriedObj.gameObject);
+        carriedObj = null;
+        isCarryingObj = false;
     }
 }

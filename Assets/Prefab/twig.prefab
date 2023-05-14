@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPickedUp: 0
-  carriedSpeedMult: 0
+  carriedSpeedMult: 1
   providesLightRadius: 0
   bonusLightDuration: 2
 --- !u!50 &3338719052670178499

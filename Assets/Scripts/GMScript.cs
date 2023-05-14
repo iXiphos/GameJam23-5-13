@@ -8,6 +8,8 @@ public class GMScript : MonoBehaviour
     public int numberCollectablesAtGameStart = 15;
     public float objectSpawnRadius = 30f;
     public GameObject tilePrefab, grassPrefab;
+    [HideInInspector]
+    public float GameTime = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,7 @@ public class GMScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        GameTime += Time.deltaTime;
     }
 
     void spawnScenery(int numSceneryToSpawn)
