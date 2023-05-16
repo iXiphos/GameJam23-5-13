@@ -103,6 +103,8 @@ MonoBehaviour:
   carriedSpeedMult: 1
   providesLightRadius: 0
   bonusLightDuration: 10
+  pickup: {fileID: 8300000, guid: 272432fe0f5a85a4ebc9ee13c2a135c5, type: 3}
+  sound: {fileID: 8300000, guid: b01f70c2528c13849af4d901f0183f45, type: 3}
 --- !u!50 &3415362909777332810
 Rigidbody2D:
   serializedVersion: 4

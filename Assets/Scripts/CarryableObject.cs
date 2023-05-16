@@ -9,6 +9,9 @@ public class CarryableObject : MonoBehaviour
     public float carriedSpeedMult = 1.0f;
     public float providesLightRadius;
     public float bonusLightDuration;
+    
+
+    public AudioClip pickup, sound;
     // Start is called before the first frame update
     void Start()
     {

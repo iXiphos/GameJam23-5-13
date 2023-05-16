@@ -21,6 +21,10 @@ public class lightScript : MonoBehaviour
     public GameObject lightObj;
 
     public bool destroyWhenDone = true;
+
+    [Tooltip("For controlling the sounds")]
+    public AudioSource fireAdd, burnSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +68,9 @@ public class lightScript : MonoBehaviour
     {
         lightDuration += obj.bonusLightDuration;
         lightStrength += 2;
+        fireAdd.clip = obj.GetComponent<CarryableObject>().sound;
+        fireAdd.Play();
+        burnSound.Play();
 
         player.notCarryingAnymore();
     }
