@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 547312705}
   - component: {fileID: 547312704}
   - component: {fileID: 547312703}
+  - component: {fileID: 547312706}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -332,6 +333,14 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!222 &547312706
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547312701}
+  m_CullTransparentMesh: 1
 --- !u!1 &583077955
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,6 +827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   speed: 5
+  difficultyIncreaseTime: 90
 --- !u!61 &2114546747
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -918,9 +928,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2357451078800921354, guid: 4e8d1c21e6b70bd4695d94fd70c432d5, type: 3}
+      propertyPath: destroyWhenDone
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5572730163071587756, guid: 4e8d1c21e6b70bd4695d94fd70c432d5, type: 3}
       propertyPath: m_Name
       value: campfire
+      objectReference: {fileID: 0}
+    - target: {fileID: 5572730163071587756, guid: 4e8d1c21e6b70bd4695d94fd70c432d5, type: 3}
+      propertyPath: m_TagString
+      value: LightSource
       objectReference: {fileID: 0}
     - target: {fileID: 6329073768581967717, guid: 4e8d1c21e6b70bd4695d94fd70c432d5, type: 3}
       propertyPath: m_RootOrder

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5605450537792985762}
   m_Layer: 0
   m_Name: campfire
-  m_TagString: Untagged
+  m_TagString: LightSource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,6 +106,7 @@ MonoBehaviour:
   lightRadius: 0
   lightPrefab: {fileID: 2578736897456686001, guid: 55b6655dd67728b49a139a07ba1100a4, type: 3}
   lightObj: {fileID: 0}
+  destroyWhenDone: 1
 --- !u!50 &8612382491270460878
 Rigidbody2D:
   serializedVersion: 4

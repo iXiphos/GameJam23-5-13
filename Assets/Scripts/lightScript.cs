@@ -19,6 +19,8 @@ public class lightScript : MonoBehaviour
     [HideInInspector]
     [Tooltip("The object that is spawned and resized")]
     public GameObject lightObj;
+
+    public bool destroyWhenDone = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,12 +44,16 @@ public class lightScript : MonoBehaviour
                 if (lightStrength == 0)
                 {
                     lightDuration = 0;
+                    if (destroyWhenDone)
+                    {
+                        Destroy(this.gameObject);
+                    }
                 }
                 else
                     lightDuration = lightDurationPerLevel;
             }
         }
-        Mathf.Clamp(lightStrength, 0, maxLightStrength);
+        lightStrength = Mathf.Clamp(lightStrength, 0, maxLightStrength);
 
         lightRadius = lightStrength * 3f;
         lightObj.transform.localScale = new Vector3(lightRadius, lightRadius, 0);

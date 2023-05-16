@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerScript : MonoBehaviour
 {
     public GameObject firePrefab, torchPrefab;
@@ -123,5 +123,18 @@ public class PlayerScript : MonoBehaviour
         Destroy(carriedObj.gameObject);
         carriedObj = null;
         isCarryingObj = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.name.Contains("Monster"))
+        {
+            EndGame();
+        }
+    }
+
+    void EndGame()
+    {
+
     }
 }
