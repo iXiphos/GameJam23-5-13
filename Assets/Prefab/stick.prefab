@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 80b4d5a2851483f4bb99d62cf93aec11, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   isPickedUp: 0
   carriedSpeedMult: 1
   providesLightRadius: 0
-  bonusLightDuration: 4
+  bonusLightDuration: 10
 --- !u!50 &3415362909777332810
 Rigidbody2D:
   serializedVersion: 4

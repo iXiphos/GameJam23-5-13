@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 80b4d5a2851483f4bb99d62cf93aec11, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -103,6 +103,9 @@ MonoBehaviour:
   lightDuration: 15
   lightDurationPerLevel: 20
   maxLightStrength: 5
+  lightRadius: 0
+  lightPrefab: {fileID: 2578736897456686001, guid: 55b6655dd67728b49a139a07ba1100a4, type: 3}
+  lightObj: {fileID: 0}
 --- !u!50 &8612382491270460878
 Rigidbody2D:
   serializedVersion: 4

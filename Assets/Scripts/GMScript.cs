@@ -30,14 +30,14 @@ public class GMScript : MonoBehaviour
         {
             for (int j = 0; j < 25; ++j)
             {
-                GameObject tile = Instantiate(tilePrefab, startPos + new Vector3(i * 3.5f, j * 3.5f, 0), Quaternion.identity);
+                GameObject tile = Instantiate(tilePrefab, startPos + new Vector3(i * 3.5f, j * 3.5f, 2), Quaternion.identity);
                 tile.transform.parent = gameObject.transform;
             }
         }
 
         for (int i = 0; i < numSceneryToSpawn; ++i)
         {
-            Vector3 newObjPos = new Vector3(Random.Range(-objectSpawnRadius, objectSpawnRadius), Random.Range(-objectSpawnRadius, objectSpawnRadius), 0);
+            Vector3 newObjPos = new Vector3(Random.Range(-objectSpawnRadius, objectSpawnRadius), Random.Range(-objectSpawnRadius, objectSpawnRadius), 1);
             GameObject grass = Instantiate(grassPrefab, newObjPos, Quaternion.identity);
             grass.transform.parent = gameObject.transform;
         }
