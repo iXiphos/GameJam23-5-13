@@ -28,7 +28,6 @@ public class lightScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lightStrength = 2;
         lightDuration = lightDurationPerLevel;
         lightRadius = lightStrength * 2f;
         lightObj = Instantiate(lightPrefab, gameObject.transform.position + new Vector3(0,0,-1), Quaternion.identity);
@@ -76,5 +75,9 @@ public class lightScript : MonoBehaviour
         player.notCarryingAnymore();
     }
 
- 
+    private void OnDestroy()
+    {
+        
+    }
+
 }

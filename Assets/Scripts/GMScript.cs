@@ -43,7 +43,7 @@ public class GMScript : MonoBehaviour
         }
     }
 
-    void spawnCollectables(int numCollectables)
+    public void spawnCollectables(int numCollectables)
     {
         for(int i = 0; i < numCollectables; ++i)
         {

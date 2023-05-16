@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerScript : MonoBehaviour
 {
     public GameObject firePrefab, torchPrefab;
     public CarryableObject carriedObj;
     public Canvas canvas;
-    public Text fooText;
+    public TMP_Text fooText;
 
+    bool gameOver = false;
     [Header("Modify these for balance stuff")]
     public float moveSpeed;
     bool isCarryingObj = false;
@@ -30,9 +32,12 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerMovement();
-        if(isCarryingObj)
-            itemInteractions();
+        if (gameOver == false)
+        {
+            playerMovement();
+            if (isCarryingObj)
+                itemInteractions();
+        }
     }
 
     void playerMovement()
@@ -135,6 +140,10 @@ public class PlayerScript : MonoBehaviour
         else if (collision.gameObject.name.Contains("campfire") && isCarryingObj && Input.GetKeyDown(pickupKey))
         {
             collision.GetComponent<lightScript>().addThingToFire(carriedObj, this);
+            if (Random.Range(1,5) == 1)
+            {
+                GameObject.Find("GameManager").GetComponent<GMScript>().spawnCollectables(3);
+            }
         }
     }
 
@@ -155,6 +164,7 @@ public class PlayerScript : MonoBehaviour
 
     void EndGame()
     {
+        gameOver = true;
         canvas.GetComponent<ScoreScript>().StopScore();
         fooText.gameObject.SetActive(true);
     }

@@ -6,7 +6,7 @@ public class MonsterScript : MonoBehaviour
 {
 
     public GameObject player;
-    public float startingSpeed;
+    public float startingSpeed, speedScaling;
     float speed;
     public List<lightScript> lightSources = new List<lightScript>();
     float timer = 0f;
@@ -42,7 +42,7 @@ public class MonsterScript : MonoBehaviour
         if(timer > difficultyIncreaseTime)
         {
             avoidancePercent -= 0.2f;
-            speed += startingSpeed/10;
+            speed += speedScaling;
             timer = 0f;
 
 

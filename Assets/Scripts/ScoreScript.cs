@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ScoreScript : MonoBehaviour
 {
     bool scoreActive = false;
     float currentTime;
-    public Text currentTimeText;
+    public TMP_Text currentTimeText;
 
     // Start is called before the first frame update
     void Start()
