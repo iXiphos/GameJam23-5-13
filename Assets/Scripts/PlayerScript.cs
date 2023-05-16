@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 public class PlayerScript : MonoBehaviour
 {
     public GameObject firePrefab, torchPrefab;
     public CarryableObject carriedObj;
+    public Canvas canvas;
+    public Text fooText;
 
     [Header("Modify these for balance stuff")]
     public float moveSpeed;
@@ -16,7 +20,8 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        canvas.GetComponent<ScoreScript>().StartScore();
+        fooText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -135,6 +140,7 @@ public class PlayerScript : MonoBehaviour
 
     void EndGame()
     {
-
+        canvas.GetComponent<ScoreScript>().StopScore();
+        fooText.gameObject.SetActive(true);
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ScoreScript : MonoBehaviour
 {
-    bool scoreActive = true;
+    bool scoreActive = false;
     float currentTime;
     public Text currentTimeText;
 
@@ -18,13 +18,13 @@ public class ScoreScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         if (scoreActive == true)
         {
             currentTime = currentTime + Time.deltaTime;
         }
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
-        currentTimeText.text = time.Minutes.ToString() + ":" + time.Seconds.ToString();
+        currentTimeText.text = "You survived for " + time.Minutes.ToString() + ":" + time.Seconds.ToString();
     }
 
     public void StartScore()
