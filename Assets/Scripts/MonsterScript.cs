@@ -6,29 +6,35 @@ public class MonsterScript : MonoBehaviour
 {
 
     public GameObject player;
-    public float speed;
-    GameObject[] lightSources;
+    public float startingSpeed;
+    float speed;
+    public List<lightScript> lightSources = new List<lightScript>();
     float timer = 0f;
     float avoidancePercent = 1f;
     public int difficultyIncreaseTime;
     // Start is called before the first frame update
     void Start()
     {
+        speed = startingSpeed;
         player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        lightSources = GameObject.FindGameObjectsWithTag("LightSource");
+       
         Vector3 targetDirection = (player.transform.position - transform.position).normalized;
-        foreach (GameObject source in lightSources)
+        foreach (lightScript source in lightSources)
         {
-            float radius = source.GetComponent<lightScript>().lightRadius;
-            if(Vector2.Distance(transform.position, source.transform.position) < radius * avoidancePercent)
+            if (source != null)
             {
-               targetDirection = -(source.transform.position - transform.position).normalized;
-            } 
+                float radius = source.lightRadius;
+                radius /= 2;
+                if (Vector2.Distance(transform.position, source.transform.position) < radius * avoidancePercent)
+                {
+                    targetDirection = -(source.transform.position - transform.position).normalized;
+                }
+            }
         }
         
         transform.position += targetDirection * speed * Time.deltaTime;
@@ -36,9 +42,12 @@ public class MonsterScript : MonoBehaviour
         if(timer > difficultyIncreaseTime)
         {
             avoidancePercent -= 0.2f;
-            speed += 0.5f;
+            speed += startingSpeed/10;
             timer = 0f;
+
+
         }
+        transform.position = new Vector3(transform.position.x, transform.position.y, -2);
     }
 
    

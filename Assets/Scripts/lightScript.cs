@@ -33,6 +33,7 @@ public class lightScript : MonoBehaviour
         lightRadius = lightStrength * 2f;
         lightObj = Instantiate(lightPrefab, gameObject.transform.position + new Vector3(0,0,-1), Quaternion.identity);
         lightObj.transform.parent = gameObject.transform;
+        GameObject.Find("Monster").GetComponent<MonsterScript>().lightSources.Add(this);
     }
 
     // Update is called once per frame
@@ -74,4 +75,6 @@ public class lightScript : MonoBehaviour
 
         player.notCarryingAnymore();
     }
+
+ 
 }
