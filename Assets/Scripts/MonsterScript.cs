@@ -12,6 +12,9 @@ public class MonsterScript : MonoBehaviour
     float timer = 0f;
     float avoidancePercent = 1f;
     public int difficultyIncreaseTime;
+
+    [SerializeField] AudioSource scream;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +48,7 @@ public class MonsterScript : MonoBehaviour
             speed += speedScaling;
             timer = 0f;
 
-
+            scream.Play();
         }
         transform.position = new Vector3(transform.position.x, transform.position.y, -2);
     }
